@@ -1,30 +1,46 @@
 // Selection sort
-console.log();
-console.log("Selection sort");
-console.log();
 function selectionSort(arr) {
-    for (let i = 0; i < arr.length - 1; i++) {
-        for (let j = i + 1; j < arr.length; j++) {
-            if (arr[i] > arr[j]) {
-                let temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
+    let n = arr.length;
+
+    for (let i = 0; i < n-1; i++) {
+        let minIndex = i;
+
+        for (let j = i + 1; j < n; j++) {
+            if (arr[j] < arr[minIndex]) {
+                minIndex = j;
             }
+        }
+
+        if (minIndex !== i) {
+            let temp = arr[i];
+            arr[i] = arr[minIndex];
+            arr[minIndex] = temp;
         }
     }
     return arr;
 }
-console.log(selectionSort([23, 7, 105, 3, 22, 97]));
+
+let numbers = [64, 25, 12, 22, 11];
+console.log("Sorted Array:", selectionSort(numbers));
+
 
 // Selection sort with string
 function selectionSortString(arr) {
-    for (let i = 0; i < arr.length - 1; i++) {
-        for (let j = i + 1; j < arr.length; j++) {
-            if (arr[i] > arr[j]) {
-                let temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
+    let n = arr.length;
+
+    for (let i = 0; i < n - 1; i++) {
+        let minIndex = i;
+
+        for (let j = i + 1; j < n; j++) {
+            if (arr[j] < arr[minIndex]) {
+                minIndex = j;
             }
+        }
+
+        if (minIndex !== i) {
+            let temp = arr[i];
+            arr[i] = arr[minIndex];
+            arr[minIndex] = temp;
         }
     }
     return arr;
@@ -66,3 +82,23 @@ selectionSortObject([
 
 
 
+function selection(arr){
+    for(let i = 0; i < arr.length; i++){
+        let min = i;
+        for(let j = i + 1; j < arr.length; j++){
+            if(arr[j] < arr[min]){
+                min=j;
+            }
+        }
+
+        console.log(arr.join(" "));
+        if(min !== i){
+            let temp = arr[min];
+            arr[min] = arr[i];
+            arr[i] = temp;
+        }
+    }
+    
+    
+}
+selection([4,5,1,3,7]);
